@@ -35,7 +35,7 @@ object Plugin : CoroutineScope {
       return
     }
     MesagistoConfig.builder {
-      name = "bukkit"
+      name = "bungeecord"
       natsAddress = CONFIG.nats
       cipherKey = CONFIG.cipher.key
     }.apply()
