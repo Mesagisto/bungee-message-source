@@ -5,30 +5,17 @@ import org.mesagisto.mcproxy.Plugin
 
 typealias BungeePlugin = net.md_5.bungee.api.plugin.Plugin
 
-class BungeeAdapter : BungeePlugin(), CoroutineScope {
-  override val coroutineContext = CoroutineScope(Dispatchers.Default).coroutineContext
+class BungeeAdapter : BungeePlugin() {
 
   private val inner = Plugin
   override fun onLoad() {
-    launch {
-      coroutineContext.ensureActive()
-      inner.coroutineContext.ensureActive()
-      inner.onLoad(this@BungeeAdapter)
-    }
+    inner.onLoad(this@BungeeAdapter)
   }
   override fun onEnable() {
-    launch {
-      inner.onEnable()
-    }
+    inner.onEnable()
   }
 
   override fun onDisable() {
-    runBlocking {
-      inner.onDisable()
-    }
-    runCatching {
-      inner.coroutineContext.cancel()
-      coroutineContext.cancel()
-    }
+    inner.onDisable()
   }
 }

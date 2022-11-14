@@ -4,7 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import net.md_5.bungee.api.event.ChatEvent
 import net.md_5.bungee.event.EventHandler
-import org.meowcat.mesagisto.client.Logger
+import org.mesagisto.client.Logger
 import org.mesagisto.mcproxy.Plugin.CONFIG
 import org.mesagisto.mcproxy.handlers.send
 import kotlin.coroutines.CoroutineContext

@@ -38,18 +38,18 @@ pkg {
     minimize()
     mergeServiceFiles()
   }
-  kotlinRelocate("org.yaml.snakeyaml", "$group.relocate.org.yaml.snakeyaml")
+  kotlinRelocate("org.yaml.snakeyaml", "relocate.org.yaml.snakeyaml")
   relocateKotlinStdlib()
   relocateKotlinxLib()
 }
 dependencies {
   compileOnly("net.md-5:bungeecord-api:1.18-R0.1-SNAPSHOT")
   compileOnly("org.jetbrains.kotlin:kotlin-stdlib")
-  pkgIn("io.nats:jnats:2.15.5")
+
   pkgIn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
   pkgIn("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3")
   pkgIn("com.github.jknack:handlebars:4.3.0")
-  pkgIn("org.mesagisto:mesagisto-client:1.5.1")
+  pkgIn("org.mesagisto:mesagisto-client:1.6.0-rc.1")
 }
 java {
   targetCompatibility = JavaVersion.VERSION_1_8

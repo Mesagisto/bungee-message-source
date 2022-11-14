@@ -2,9 +2,9 @@ package org.mesagisto.mcproxy
 
 import net.md_5.bungee.api.chat.TextComponent
 import net.md_5.bungee.api.connection.ProxiedPlayer
-import org.meowcat.mesagisto.client.ILogger
-import org.meowcat.mesagisto.client.LogLevel
-import org.meowcat.mesagisto.client.Logger
+import org.mesagisto.client.ILogger
+import org.mesagisto.client.LogLevel
+import org.mesagisto.client.Logger
 import java.nio.ByteBuffer
 import java.util.*
 import java.util.logging.Level

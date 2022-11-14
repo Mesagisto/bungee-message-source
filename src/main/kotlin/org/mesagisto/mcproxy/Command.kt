@@ -24,14 +24,15 @@ object Command : BungeeCommand("msgist", "mesagisto", "信使"), CoroutineScope 
       "status" -> sender.status()
     }
   }
-  private fun ProxiedPlayer.bind(channel: String) = launch {
+  private fun ProxiedPlayer.bind(roomAddress: String) = launch {
     val serverName = server.info.name
-    if (CONFIG.bindings.put(serverName, channel) != null) {
-      Receive.change(serverName, channel)
-      sendText("成功将子服务器:$serverName 的信使频道变更为$channel")
+    val before = CONFIG.bindings.put(serverName, roomAddress)
+    if (before != null) {
+      Receive.change(before, roomAddress)
+      sendText("成功将子服务器:$serverName 的信使频道变更为$roomAddress")
     } else {
-      Receive.add(serverName, channel)
-      sendText("成功将子服务器:$serverName 的信使频道设置为$channel")
+      Receive.add(roomAddress)
+      sendText("成功将子服务器:$serverName 的信使频道设置为$roomAddress")
     }
   }
   private fun ProxiedPlayer.unbind() = launch {
